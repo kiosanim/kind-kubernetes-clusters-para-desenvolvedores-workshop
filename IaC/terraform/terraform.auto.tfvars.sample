@@ -1,0 +1,18 @@
+# Access Token do usuário no linode
+shared_token =
+# Senha de root do servidore
+shared_root_pass =
+# Região do Datacenter Linode
+shared_region =
+# true se a máquina tiver ip privado
+shared_private_ip =
+# Array com as chaves públicas autorizadas a logar no servidor
+authorized_keys = []
+# Tags para identificar o servidor
+ubuntu_tags = []
+# Label para identificar o servidor
+ubuntu_label = 
+# Imagem de Linux para a criação do servidor
+ubuntu_image = "linode/ubuntu20.04"
+# Tipo do linode com 4GB de RAM (verifique os custo $$ antes)
+ubuntu_type = "g6-standard-4"

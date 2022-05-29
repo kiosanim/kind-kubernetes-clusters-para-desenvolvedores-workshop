@@ -1,0 +1,50 @@
+# Autor: Fábio Sartori
+# Copyright: 20220525
+
+- hosts: ubuntukind
+  become: yes
+  tasks:
+    - name: Alterando o hostname para ubuntukind
+      hostname:
+        name: ubuntukind
+      become: yes
+
+    - name: Instalando Docker
+      apt:
+        name: ["docker.io", "docker-compose"]
+        state: present
+        update_cache: yes
+      become: yes
+
+    - name: Desabilidando autenticacao com senha
+      lineinfile: dest=/etc/ssh/sshd_config
+        regexp='^#PasswordAuthentication no|^#PasswordAuthentication yes|^PasswordAuthentication yes'
+        line="PasswordAuthentication no"
+        state=present
+        backup=yes
+      notify:
+        - restart ssh
+
+    - name: Habilitando autenticacao por chave publica
+      lineinfile: dest=/etc/ssh/sshd_config
+        regexp='^#PubkeyAuthentication no|^#PubkeyAuthentication yes|^PubkeyAuthentication no'
+        line="PubkeyAuthentication yes"
+        state=present
+        backup=yes
+      notify:
+        - restart ssh
+
+    # - name: desabilitando login com root
+    #   lineinfile:
+    #         dest=/etc/ssh/sshd_config
+    #         regexp='^#PermitRootLogin no|^#PermitRootLogin yes|^PermitRootLogin yes '
+    #         line="PermitRootLogin no"
+    #         state=present
+    #         backup=yes
+    #   notify:
+    #     - restart ssh
+
+  handlers:
+    - name: restart ssh
+      service: name=sshd
+        state=restarted

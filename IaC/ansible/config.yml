@@ -1,0 +1,4 @@
+pocuser_password: "qawsedrf"
+salt_for_passwords: "lkjh345"
+inventory: "hosts"
+playbook: "playbook.yml"
