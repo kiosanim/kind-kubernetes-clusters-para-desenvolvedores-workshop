@@ -409,24 +409,24 @@ Segue o link para maiores referências sobre as configurações possiveis.
 Crie um arquivo chamado **cluster-config.yaml** para um **cluster single-node** com o conteúdo abaixo:
 
 ```yaml
-	kind: Cluster
-	apiVersion: kind.x-k8s.io/v1alpha4
-	name: cons-prosp
-	nodes:
-	- role: control-plane
-	  kubeadmConfigPatches:
-	  - |
-		kind: InitConfiguration
-		nodeRegistration:
-		  kubeletExtraArgs:
-			node-labels: "ingress-ready=true"
-	  extraPortMappings:
-	  - containerPort: 80
-		hostPort: 80
-		protocol: TCP
-	  - containerPort: 443
-		hostPort: 443
-		protocol: TCP
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: cons-prosp
+nodes:
+- role: control-plane
+  kubeadmConfigPatches:
+  - |
+	kind: InitConfiguration
+	nodeRegistration:
+	  kubeletExtraArgs:
+		node-labels: "ingress-ready=true"
+  extraPortMappings:
+  - containerPort: 80
+	hostPort: 80
+	protocol: TCP
+  - containerPort: 443
+	hostPort: 443
+	protocol: TCP
 ```
 
 Ou para um **cluster multi-node**
@@ -884,4 +884,4 @@ Como resultado, poderá perceber que existem instâncias nas duas instâncias do
 
 ## Material do Workshop
 
-[https://github.com/kiosanim](https://github.com/kiosanim)
+[https://github.com/kiosanim/kind-kubernetes-clusters-para-desenvolvedores-workshop](https://github.com/kiosanim/kind-kubernetes-clusters-para-desenvolvedores-workshop)

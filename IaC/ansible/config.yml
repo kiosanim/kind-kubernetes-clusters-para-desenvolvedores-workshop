@@ -1,4 +1,4 @@
-pocuser_password: "qawsedrf"
-salt_for_passwords: "lkjh345"
+pocuser_password: "_QUALQUER_SENHA_"
+salt_for_passwords: "_QUALQUER_SALT_"
 inventory: "hosts"
 playbook: "playbook.yml"
