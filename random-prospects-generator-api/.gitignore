@@ -1,0 +1,34 @@
+/build/
+*.egg-info/
+.eggs
+/dist/
+.idea
+old/
+
+netrin-proxies-catalog.db
+
+__pycache__/
+*.py[cod]
+.env
+debug.log
+venv
+.pytest_cache
+
+# If you are using PyCharm #
+.idea
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# Visual Studio Code #
+.vscode
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+

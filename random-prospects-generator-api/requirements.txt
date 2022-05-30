@@ -1,0 +1,5 @@
+fastapi==0.78.0
+faker==13.12.0
+uvicorn==0.17.6
+requests==2.27.1
+python-dotenv==0.20.0

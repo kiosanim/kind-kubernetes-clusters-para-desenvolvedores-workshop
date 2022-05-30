@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: random-prospects-genetator-api-svc
+spec:
+  selector:
+    app: random-prospects-genetator-api
+  ports:
+  - port: 5000

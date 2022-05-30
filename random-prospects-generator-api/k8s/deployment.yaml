@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "random-prospects-genetator-api"
+spec:
+  selector:
+    matchLabels:
+      app: "random-prospects-genetator-api"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "random-prospects-genetator-api"
+    spec:
+      containers:
+        - name: "random-prospects-genetator-api"
+          image: "fabiosartori/random-prospects-genetator-api:0.1.1"
+          resources:
+            limits:
+              memory: 128Mi
+              cpu: 256m
+          env:
+            - name: "PORT"
+              value: "5000"
+            - name: "ENVIRONMENT"
+              value: "development"
+            - name: "PROSPECTS_ROUTE"
+              value: "/prospects"
+          envFrom:
+            - configMapRef:
+                name: "random-prospects-genetator-api-config"
+          ports:
+            - containerPort: 8000

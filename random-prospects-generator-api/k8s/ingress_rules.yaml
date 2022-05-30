@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: random-prospects-genetator-api-ingress
+spec:
+  rules:
+    - host: juvenal.example.com
+      http:
+        paths:
+          - pathType: ImplementationSpecific
+            path: "/prospects"
+            backend:
+              service:
+                name: random-prospects-genetator-api-svc
+                port:
+                  number: 5000
